@@ -1,0 +1,21 @@
+{
+  "name": "appointment.backend",
+  "version": "1.0.0",
+  "description": "The backend of an Appointment App",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest ./test/unitTests/*",
+    "dev": "tsc --watch --preserveWatchOutput & nodemon --watch src --require dotenv/config --verbose ./src/app.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jest": "^29.7.0",
+    "node": "^22.6.0",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2"
+  }
+}
