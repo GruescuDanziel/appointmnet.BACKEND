@@ -1,17 +1,19 @@
 import { Router } from 'express'
+import { DoctorsService } from '../services/Doctors';
 
 const doctorsRouter = Router();
+const doctorsService = DoctorsService.getInstance();
 
 doctorsRouter
     .route('/')
-    .get((req, res, next) => {
-        res.send("All Doctors")
+    .get(async (req, res, next) => {
+        res.send(await doctorsService.getAllDoctors())
     })
 
 doctorsRouter
     .route('/:id')
-    .get((req, res, next) => {
-        res.send(`Single Doctor With Id: ${req.params.id}`)
+    .get(async (req, res, next) => {
+        res.send(await doctorsService.getDoctorById(req.params.id))
     })
 
 
