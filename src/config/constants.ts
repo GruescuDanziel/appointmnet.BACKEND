@@ -1,0 +1,6 @@
+const DOCTORS_ENDPOINT = "/doctors";
+const PATIENTS_ENDPOINT = "/patients"
+const APPOINTMENTS_ENDPOINT = "/appointments"
+
+
+export {DOCTORS_ENDPOINT, PATIENTS_ENDPOINT, APPOINTMENTS_ENDPOINT}
