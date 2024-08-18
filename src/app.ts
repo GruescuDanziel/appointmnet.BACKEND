@@ -4,6 +4,7 @@ import { APPOINTMENTS_ENDPOINT, DOCTORS_ENDPOINT, PATIENTS_ENDPOINT } from './co
 
 
 const app = express();
+app.use(express.json())
 const port: number = Number(process.env.port ?? 8080);
 
 app.use(DOCTORS_ENDPOINT, doctorsRouter);

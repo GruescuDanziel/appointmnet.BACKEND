@@ -1,7 +1,7 @@
+import { DoctorCreateDTO } from "../dtos/DoctorCreateDTO";
 import { Doctors } from "../models/Doctors";
 
 export class DoctorsRepository {
-
     private static DoctorsRepositoryInstance: DoctorsRepository;
 
     private constructor() { };
@@ -18,10 +18,23 @@ export class DoctorsRepository {
     public findAll() {
         return Doctors.select()
     }
-    findById(id: string) {
-        return Doctors.select().where({id})
+
+    public findById(id: string) {
+        return Doctors.select().where({ id })
     }
 
+    public async createDoctor(DoctorDTO: DoctorCreateDTO) {
+        try {
+            await Doctors.insert(DoctorDTO.toKnexObject())
+        } catch (e) {
+            console.error(e)
+            return "The user could not have been created"
+        }
+    }
+    public async deleteDoctor(doctorId: string) {
+        return await Doctors.del().where({id: doctorId})
+
+    }
 
 
 }
